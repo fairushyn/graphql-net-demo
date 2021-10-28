@@ -1,0 +1,7 @@
+query getProjects{
+  projects{
+    nodes {
+      id name projectEmployees {employee { firstName } }
+    }
+  }
+}

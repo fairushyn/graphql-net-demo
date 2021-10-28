@@ -1,0 +1,408 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+}
+
+type TimeSheet {
+  id: UUID!
+  projectEmployeeId: UUID!
+  projectEmployee: ProjectEmployee!
+  date: DateTime!
+  trackTimeType: TrackTimeType!
+  hours: Decimal!
+  description: String
+}
+
+type Query {
+  employeesWithProjection: [Employee!]!
+  employeesWithFiltering(where: EmployeeFilterInput): [Employee!]!
+  employeesWithSorting(order: [EmployeeSortInput!]): [Employee!]!
+  employeesWithPaging("Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String): EmployeesWithPagingConnection
+  employees("Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: EmployeeFilterInput order: [EmployeeSortInput!]): EmployeesConnection
+  projects("Returns the first _n_ elements from the list." first: Int "Returns the elements in the list that come after the specified cursor." after: String "Returns the last _n_ elements from the list." last: Int "Returns the elements in the list that come before the specified cursor." before: String where: ProjectFilterInput order: [ProjectSortInput!]): ProjectsConnection
+  employeeById(id: UUID!): Employee!
+  timeSheets(where: TimeSheetFilterInput order: [TimeSheetSortInput!]): [TimeSheet!]!
+}
+
+type Mutation {
+  addEmployee(command: AddEmployeeCommandInput!): Employee!
+  addProject(command: AddProjectCommandInput!): Project!
+  assignEmployeeToProject(command: AssignEmployeeToProjectCommandInput!): ProjectEmployee!
+  trackTime(command: TrackTimeCommandInput!): TimeSheet!
+}
+
+scalar UUID
+
+type ProjectEmployee {
+  id: UUID!
+  projectId: UUID!
+  project: Project!
+  employeeId: UUID!
+  employee: Employee!
+  startDate: DateTime!
+  endDate: DateTime
+  isActive: Boolean!
+  timeSheets: [TimeSheet!]!
+}
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+enum TrackTimeType {
+  NONE
+  WORKING_HOURS
+  DAY_OFF
+  SICK_LEAVE
+  HOLIDAY
+  VACATION
+  OVERTIME
+}
+
+"The built-in `Decimal` scalar type."
+scalar Decimal
+
+input EmployeeFilterInput {
+  and: [EmployeeFilterInput!]
+  or: [EmployeeFilterInput!]
+  id: ComparableGuidOperationFilterInput
+  firstName: StringOperationFilterInput
+  lastName: StringOperationFilterInput
+  email: StringOperationFilterInput
+  projectEmployees: ListFilterInputTypeOfProjectEmployeeFilterInput
+}
+
+input EmployeeSortInput {
+  id: SortEnumType
+  firstName: SortEnumType
+  lastName: SortEnumType
+  email: SortEnumType
+}
+
+input ProjectFilterInput {
+  and: [ProjectFilterInput!]
+  or: [ProjectFilterInput!]
+  id: ComparableGuidOperationFilterInput
+  name: StringOperationFilterInput
+  projectEmployees: ListFilterInputTypeOfProjectEmployeeFilterInput
+}
+
+input ProjectSortInput {
+  id: SortEnumType
+  name: SortEnumType
+}
+
+input TimeSheetFilterInput {
+  and: [TimeSheetFilterInput!]
+  or: [TimeSheetFilterInput!]
+  id: ComparableGuidOperationFilterInput
+  projectEmployeeId: ComparableGuidOperationFilterInput
+  projectEmployee: ProjectEmployeeFilterInput
+  date: ComparableDateTimeOperationFilterInput
+  trackTimeType: TrackTimeTypeOperationFilterInput
+  hours: ComparableDecimalOperationFilterInput
+  description: StringOperationFilterInput
+  approvedByEmployeeId: ComparableNullableOfGuidOperationFilterInput
+}
+
+input TimeSheetSortInput {
+  id: SortEnumType
+  projectEmployeeId: SortEnumType
+  projectEmployee: ProjectEmployeeSortInput
+  date: SortEnumType
+  trackTimeType: SortEnumType
+  hours: SortEnumType
+  description: SortEnumType
+  approvedByEmployeeId: SortEnumType
+}
+
+"A connection to a list of items."
+type EmployeesWithPagingConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [EmployeesWithPagingEdge!]
+  "A flattened list of the nodes."
+  nodes: [Employee!]
+  totalCount: Int!
+}
+
+"A connection to a list of items."
+type EmployeesConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [EmployeesEdge!]
+  "A flattened list of the nodes."
+  nodes: [Employee!]
+  totalCount: Int!
+}
+
+"A connection to a list of items."
+type ProjectsConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ProjectsEdge!]
+  "A flattened list of the nodes."
+  nodes: [Project!]
+  totalCount: Int!
+}
+
+input ComparableGuidOperationFilterInput {
+  eq: UUID
+  neq: UUID
+  in: [UUID!]
+  nin: [UUID!]
+  gt: UUID
+  ngt: UUID
+  gte: UUID
+  ngte: UUID
+  lt: UUID
+  nlt: UUID
+  lte: UUID
+  nlte: UUID
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String
+  neq: String
+  contains: String
+  ncontains: String
+  in: [String]
+  nin: [String]
+  startsWith: String
+  nstartsWith: String
+  endsWith: String
+  nendsWith: String
+}
+
+input ListFilterInputTypeOfProjectEmployeeFilterInput {
+  all: ProjectEmployeeFilterInput
+  none: ProjectEmployeeFilterInput
+  some: ProjectEmployeeFilterInput
+  any: Boolean
+}
+
+enum SortEnumType {
+  ASC
+  DESC
+}
+
+input ProjectEmployeeFilterInput {
+  and: [ProjectEmployeeFilterInput!]
+  or: [ProjectEmployeeFilterInput!]
+  id: ComparableGuidOperationFilterInput
+  projectId: ComparableGuidOperationFilterInput
+  project: ProjectFilterInput
+  employeeId: ComparableGuidOperationFilterInput
+  employee: EmployeeFilterInput
+  startDate: ComparableDateTimeOperationFilterInput
+  endDate: ComparableNullableOfDateTimeOperationFilterInput
+  isActive: BooleanOperationFilterInput
+  timeSheets: ListFilterInputTypeOfTimeSheetFilterInput
+}
+
+input ComparableDateTimeOperationFilterInput {
+  eq: DateTime
+  neq: DateTime
+  in: [DateTime!]
+  nin: [DateTime!]
+  gt: DateTime
+  ngt: DateTime
+  gte: DateTime
+  ngte: DateTime
+  lt: DateTime
+  nlt: DateTime
+  lte: DateTime
+  nlte: DateTime
+}
+
+input TrackTimeTypeOperationFilterInput {
+  eq: TrackTimeType
+  neq: TrackTimeType
+  in: [TrackTimeType!]
+  nin: [TrackTimeType!]
+}
+
+input ComparableDecimalOperationFilterInput {
+  eq: Decimal
+  neq: Decimal
+  in: [Decimal!]
+  nin: [Decimal!]
+  gt: Decimal
+  ngt: Decimal
+  gte: Decimal
+  ngte: Decimal
+  lt: Decimal
+  nlt: Decimal
+  lte: Decimal
+  nlte: Decimal
+}
+
+input ComparableNullableOfGuidOperationFilterInput {
+  eq: UUID
+  neq: UUID
+  in: [UUID]
+  nin: [UUID]
+  gt: UUID
+  ngt: UUID
+  gte: UUID
+  ngte: UUID
+  lt: UUID
+  nlt: UUID
+  lte: UUID
+  nlte: UUID
+}
+
+input ProjectEmployeeSortInput {
+  id: SortEnumType
+  projectId: SortEnumType
+  project: ProjectSortInput
+  employeeId: SortEnumType
+  employee: EmployeeSortInput
+  startDate: SortEnumType
+  endDate: SortEnumType
+  isActive: SortEnumType
+}
+
+"Information about pagination in a connection."
+type PageInfo {
+  "Indicates whether more edges exist following the set defined by the clients arguments."
+  hasNextPage: Boolean!
+  "Indicates whether more edges exist prior the set defined by the clients arguments."
+  hasPreviousPage: Boolean!
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+}
+
+type Employee {
+  id: UUID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  projectEmployees: [ProjectEmployee!]!
+}
+
+"An edge in a connection."
+type EmployeesWithPagingEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Employee!
+}
+
+"An edge in a connection."
+type EmployeesEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Employee!
+}
+
+type Project {
+  assignEmployee(employee: EmployeeInput! startDate: DateTime!): ProjectEmployee!
+  id: UUID!
+  name: String!
+  projectEmployees: [ProjectEmployee!]!
+}
+
+"An edge in a connection."
+type ProjectsEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Project!
+}
+
+input ComparableNullableOfDateTimeOperationFilterInput {
+  eq: DateTime
+  neq: DateTime
+  in: [DateTime]
+  nin: [DateTime]
+  gt: DateTime
+  ngt: DateTime
+  gte: DateTime
+  ngte: DateTime
+  lt: DateTime
+  nlt: DateTime
+  lte: DateTime
+  nlte: DateTime
+}
+
+input BooleanOperationFilterInput {
+  eq: Boolean
+  neq: Boolean
+}
+
+input ListFilterInputTypeOfTimeSheetFilterInput {
+  all: TimeSheetFilterInput
+  none: TimeSheetFilterInput
+  some: TimeSheetFilterInput
+  any: Boolean
+}
+
+input TrackTimeCommandInput {
+  employeeId: UUID!
+  projectId: UUID!
+  date: DateTime!
+  type: TrackTimeType!
+  hours: Decimal!
+  description: String
+}
+
+input AssignEmployeeToProjectCommandInput {
+  employeeId: UUID!
+  projectId: UUID!
+  startDate: DateTime!
+}
+
+input AddProjectCommandInput {
+  name: String!
+}
+
+input AddEmployeeCommandInput {
+  firstName: String!
+  lastName: String!
+  email: String!
+}
+
+input EmployeeInput {
+  id: UUID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  projectEmployees: [ProjectEmployeeInput!]!
+}
+
+input ProjectEmployeeInput {
+  id: UUID!
+  projectId: UUID!
+  project: ProjectInput!
+  employeeId: UUID!
+  employee: EmployeeInput!
+  startDate: DateTime!
+  endDate: DateTime
+  isActive: Boolean!
+  timeSheets: [TimeSheetInput!]!
+}
+
+input TimeSheetInput {
+  id: UUID!
+  projectEmployeeId: UUID!
+  projectEmployee: ProjectEmployeeInput!
+  date: DateTime!
+  trackTimeType: TrackTimeType!
+  hours: Decimal!
+  description: String
+  approvedByEmployeeId: UUID
+}
+
+input ProjectInput {
+  id: UUID!
+  name: String!
+  projectEmployees: [ProjectEmployeeInput!]!
+}

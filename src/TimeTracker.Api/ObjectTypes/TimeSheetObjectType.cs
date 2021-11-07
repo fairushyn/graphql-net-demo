@@ -8,6 +8,14 @@ namespace TimeTracker.Api.ObjectTypes
         protected override void Configure(IObjectTypeDescriptor<TimeSheet> descriptor)
         {
             descriptor.Field(x => x.ApprovedByEmployeeId).Ignore();
+
+            descriptor.Field("customResolverField")
+                .Description("Description for custom field")
+                .Resolve((context, ct) =>
+                {
+                    // fetch value for a field
+                    return "CustomValue";
+                });
         }
     }
 }

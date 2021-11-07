@@ -1,5 +1,6 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
+using HotChocolate.Resolvers;
 using HotChocolate.Types;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -56,6 +57,24 @@ namespace TimeTracker.Api
         public async Task<Employee> GetEmployeeByIdAsync([Service] ApplicationDbContext context, Guid id) 
             => await context.Employees.FirstOrDefaultAsync(x => x.Id == id)
             ?? throw new NotFoundException($"Employee with id {id} not found");
+
+        public Task<Employee> GetOptimizedEmployeeByIdAsync(
+            Guid id,
+            IResolverContext context,
+            [Service] ApplicationDbContext dbContext)
+        {
+            return context.BatchDataLoader<Guid, Employee>(
+                async (keys, cancellationToken) =>
+                {
+                    var result = await dbContext
+                    .Employees
+                    .Where(x => keys.Contains(x.Id))
+                    .ToListAsync(cancellationToken);
+
+                    return result.ToDictionary(x => x.Id);
+                })
+                .LoadAsync(id);
+        }
 
         [UseProjection]
         [UseFiltering]

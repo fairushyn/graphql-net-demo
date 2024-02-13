@@ -1,0 +1,271 @@
+repo_name: fairushyn/graphql-net-demo
+report_id: 9d0d28c921efc3929b6a2ff77e1ebd0d
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-13T18:01:55+00:00'
+requested_by: rmidyk
+provider: github
+branch: main
+detected_tools_count: 20
+tools:
+- name: C#
+  description: Simple, general-purpose, object-oriented programming language for the
+    .NET platform
+  website_url: http://csharp.net
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo
+  detection_source: Repo Metadata
+- name: ".NET"
+  description: A free, cross-platform, open source developer platform for building
+    many different types of applications
+  website_url: http://www.microsoft.com/net/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/1014/IoPy1dce_400x400.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Domain/TimeTracker.Domain.csproj
+  detection_source: src/TimeTracker.Domain/TimeTracker.Domain.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: ".NET Core"
+  description: An Open Source, General-Purpose Development Platform Maintained by
+    Microsoft and the .NET Community
+  website_url: https://docs.microsoft.com/en-us/dotnet/core/
+  version: '5.0'
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/6403/default_91fc1f0ee315262794273aa1387eaf8fed8436e6.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  detection_source: src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: ASP.NET Core
+  description: A cross-platform .NET framework for building modern cloud-based web
+    applications on Windows, Mac, or Linux
+  website_url: docs.microsoft.com/en-us/aspnet/core/
+  version: '5.0'
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/11331/asp.net-core.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  detection_source: src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: GraphQL
+  description: A data query language and runtime
+  website_url: http://graphql.org/
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Query Languages
+  image_url: https://img.stackshare.io/service/3820/12972006.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api.Client/schema.graphql
+  detection_source: src/TimeTracker.Api.Client/schema.graphql
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: MediatR
+  description: In-process messaging with no dependencies
+  website_url: https://github.com/jbogard/MediatR
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Message Queue
+  image_url: https://img.stackshare.io/service/20925/default_6fd5a642fb778d0aeef31d8d6cf9b58b8f20da27.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Application/TimeTracker.Application.csproj
+  detection_source: src/TimeTracker.Application/TimeTracker.Application.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: PostgreSQL
+  description: A powerful, open source object-relational database system
+  website_url: http://www.postgresql.org/
+  open_source: true
+  hosted_saas: false
+  category: Data Stores
+  sub_category: Databases
+  image_url: https://img.stackshare.io/service/1028/ASOhU5xJ.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/docker-compose/docker-compose.yaml
+  detection_source: docker-compose/docker-compose.yaml
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Docker
+  description: Enterprise Container Platform for High-Velocity Innovation.
+  website_url: https://www.docker.com/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Virtual Machine Platforms & Containers
+  image_url: https://img.stackshare.io/service/586/n4u37v9t_400x400.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo
+  detection_source: Repo Metadata
+- name: NuGet
+  description: The package manager for .NET
+  website_url: https://www.nuget.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Package Managers
+  image_url: https://img.stackshare.io/service/2637/6I3oEOP4_400x400.jpg
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Domain/TimeTracker.Domain.csproj
+  detection_source: src/TimeTracker.Domain/TimeTracker.Domain.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Visual Studio
+  description: State-of-the-art tools and services that you can use to create great
+    apps for devices, the cloud, and everything in between.
+  website_url: http://msdn.microsoft.com/en-us/vstudio/aa718325.aspx
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Integrated Development Environment
+  image_url: https://img.stackshare.io/service/1451/SR2hUhQN.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.sln
+  detection_source: src/TimeTracker.sln
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Apiary
+  description: Integrated API documentation, prototyping and testing
+  website_url: http://apiary.io/
+  open_source: false
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Documentation as a Service & Tools
+  image_url: https://img.stackshare.io/service/272/7b176017eab2903a23d914460b6dd600.jpeg
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/docker-compose/docker-compose.yaml
+  detection_source: docker-compose/docker-compose.yaml
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Base
+  description: All-in-one sales and customer management platform
+  website_url: https://getbase.com/
+  open_source: false
+  hosted_saas: false
+  category: Support, Sales, and Marketing
+  sub_category: CRM
+  image_url: https://img.stackshare.io/service/3633/ZBMmmvP1_400x400.jpg
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/docker-compose/docker-compose.yaml
+  detection_source: docker-compose/docker-compose.yaml
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: User
+  description: A real-time marketing automation tool for companies to turn every visitor
+    into a happy customer
+  website_url: https://user.com/en/
+  open_source: false
+  hosted_saas: false
+  category: Support, Sales, and Marketing
+  sub_category: Marketing Automation
+  image_url: https://img.stackshare.io/service/6519/Y6VD3lCR_400x400.jpg
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/docker-compose/docker-compose.yaml
+  detection_source: docker-compose/docker-compose.yaml
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: FluentValidation.AspNetCore
+  description: AspNetCore integration for FluentValidation
+  package_url: https://www.nuget.org/FluentValidation.AspNetCore
+  version: 10.3.3
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13324/default_4d1c8e39751da3e5e8bf7305f3f45ac90df4be6f.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api/TimeTracker.Api.csproj
+  detection_source: src/TimeTracker.Api/TimeTracker.Api.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: MediatR.Extensions.Microsoft.DependencyInjection
+  description: MediatR extensions for ASP.NET Core
+  package_url: https://www.nuget.org/MediatR.Extensions.Microsoft.DependencyInjection
+  version: 9.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13395/default_de77a8370e47861dfbe30f06e25c22916ed609b5.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Application/TimeTracker.Application.csproj
+  detection_source: src/TimeTracker.Application/TimeTracker.Application.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Microsoft.EntityFrameworkCore.Tools
+  description: Entity Framework Core Tools for the NuGet Package Manager Console in
+    Visual Studio
+  package_url: https://www.nuget.org/Microsoft.EntityFrameworkCore.Tools
+  version: 5.0.10
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/13138/default_a057bdad489be3cb053d372a68695da4ac94962d.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api/TimeTracker.Api.csproj
+  detection_source: src/TimeTracker.Api/TimeTracker.Api.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Microsoft.Extensions.DependencyInjection
+  description: Default implementation of dependency injection for Microsoft.Extensions.DependencyInjection
+  package_url: https://www.nuget.org/Microsoft.Extensions.DependencyInjection
+  version: 5.0.2
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12846/default_0f5233770e71818507f2339042e7e61bef904e70.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  detection_source: src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Microsoft.Extensions.DependencyInjection.Abstractions
+  description: Abstractions for dependency injection
+  package_url: https://www.nuget.org/Microsoft.Extensions.DependencyInjection.Abstractions
+  version: 5.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12848/default_ccf90b566c21ad9eaa59733f297e535ea39fb3b4.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Domain/TimeTracker.Domain.csproj
+  detection_source: src/TimeTracker.Domain/TimeTracker.Domain.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
+- name: Microsoft.Extensions.Http
+  description: The HttpClient factory is a pattern for configuring and retrieving
+    named HttpClients in a composable way
+  package_url: https://www.nuget.org/Microsoft.Extensions.Http
+  version: 5.0.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: NuGet Packages
+  image_url: https://img.stackshare.io/package/12940/default_54d470a1e19c265eb229b6bd88965fb8df9f9f78.png
+  detection_source_url: https://github.com/fairushyn/graphql-net-demo/blob/main/src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  detection_source: src/TimeTracker.Api.Client/TimeTracker.Api.Client.csproj
+  last_updated_by: Roman
+  last_updated_on: 2021-10-28 19:54:59.000000000 Z
